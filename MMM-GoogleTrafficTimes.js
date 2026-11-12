@@ -42,6 +42,7 @@ Module.register("MMM-GoogleTrafficTimes", {
 		language: "en-EN",
 		offsetTimePercentage: 25,
 		lastUpdate: true,
+		showLastUpdateAlways: false,
 		timeLastUpdateWarning: 1,
 		horizontalLayout: false,
 		debug: false
@@ -109,7 +110,10 @@ Module.register("MMM-GoogleTrafficTimes", {
 				wrapper.innerHTML += self.getDestinationContent(element.destination, element.googleResponse)
 			});
 		}
-		if (self.config.lastUpdate && self.isTimesOld()) wrapper.innerHTML += self.getLastUpdateContent();
+		if (self.config.lastUpdate && self.timeLastUpdate &&
+			(self.config.showLastUpdateAlways || self.isTimesOld())) {
+			wrapper.innerHTML += self.getLastUpdateContent();
+		}
 	},
 
 	getDestinationContent(destination, response) {

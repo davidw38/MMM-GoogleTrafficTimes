@@ -12,7 +12,9 @@
 
 .mmmtraffic-updateline {
     font-style: italic;
-    font-size: medium;
+    font-size: small;
+    align-self: flex-end;
+    margin: 0 1em;
 }
 
 .mmmtraffic-horizontaly {
